@@ -210,4 +210,13 @@ class SquareThenLineCircleView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : SquareThenLineCircleView {
+            val view : SquareThenLineCircleView = SquareThenLineCircleView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
