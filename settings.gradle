@@ -1,0 +1,3 @@
+include ':squarethenlinecircleview'
+include ':app'
+rootProject.name = "LinkedSquareThenLineCircleView"
