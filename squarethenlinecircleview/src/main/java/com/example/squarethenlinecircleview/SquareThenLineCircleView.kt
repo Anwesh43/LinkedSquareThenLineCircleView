@@ -41,9 +41,9 @@ fun Canvas.drawSquareThenLineCircle(scale : Float, w : Float, h : Float, paint :
     translate(w / 2, h / 2)
     for (j in 0..1) {
         save()
-        scale(1f - 2 * j, 1f)
+        scale(1f, 1f - 2 * j)
         drawRect(RectF(-size / 2, -(size / 2) * sf1, size / 2, -(size / 2) * sf2), paint)
-        drawLine(0f, (-size / 2) * sf2, 0f, (size / 2) * sf3, paint)
+        drawLine(0f, (-size / 2) * sf2, 0f, -(size / 2) * sf3, paint)
         restore()
     }
     drawArc(RectF(-size / 2, -size / 2, size / 2, size / 2), 0f, 360f * sf4, true, paint)
