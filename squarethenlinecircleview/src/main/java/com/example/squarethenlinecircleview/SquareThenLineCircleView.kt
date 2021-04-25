@@ -185,4 +185,27 @@ class SquareThenLineCircleView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : SquareThenLineCircleView) {
+
+        private val animator : Animator = Animator(view)
+        private val stlc : SquareThenLineCircle = SquareThenLineCircle(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            stlc.draw(canvas, paint)
+            animator.animate {
+                stlc.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            stlc.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
